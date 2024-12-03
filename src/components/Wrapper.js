@@ -4,9 +4,10 @@ const Container = styled.div`
   width: 100%;
   max-width: 430px;
   min-height: 100vh;
-  padding: 70px 16px;
+  padding: 0 16px;
   margin: 0 auto;
-  background-color: #c7d291;
+  background-color: #dfe5c1;
+  position: relative;
 `;
 
 const Wrapper = ({ children }) => {

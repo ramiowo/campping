@@ -8,7 +8,7 @@ ${reset}
 }
 body{
     font-family: "Noto Sans KR", sans-serif;
-    background-color: #70774B;
+    background-color: #dbdbdb;
     letter-spacing: -1px;
     color: #FFFFFF;
 }
