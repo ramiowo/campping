@@ -6,7 +6,7 @@ const Container = styled.div`
   min-height: 100vh;
   padding: 0 16px;
   margin: 0 auto;
-  background-color: #dfe5c1;
+  background-color: #fdfff3;
   position: relative;
 `;
 

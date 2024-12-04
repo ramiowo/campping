@@ -47,6 +47,7 @@ const Banner = () => {
           <Con>
             <Link
               to={`https://gocamping.or.kr/zboard/read.do?searchWrd=&pageIndex=1&lmCode=campSafe&searchCnd=&searchCate1=&pd_pkid=6522`}
+              target="blank"
             >
               <img src={item.img} alt={`Banner ${item.id}`} />
             </Link>

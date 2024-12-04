@@ -5,7 +5,7 @@ const Container = styled.section`
   width: 100%;
   max-width: 430px;
   height: 60px;
-  background-color: #dfe5c1;
+  background-color: #fdfff3;
   padding: 0 16px;
   margin: 0 auto;
   display: flex;

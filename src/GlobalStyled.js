@@ -10,7 +10,7 @@ body{
     font-family: "Noto Sans KR", sans-serif;
     background-color: #dbdbdb;
     letter-spacing: -1px;
-    color: #FFFFFF;
+    color: #000;
 }
 a{
     color: #FFFFFF;

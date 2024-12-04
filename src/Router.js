@@ -3,6 +3,7 @@ import Start from "./pages/start/Start";
 import Header from "./components/Header";
 import Home from "./pages/home/Home";
 import Search from "./pages/search/Search";
+import Detail from "./pages/detail/Detail";
 
 const Router = () => {
   const location = useLocation(); // 현재 경로를 가져옴
@@ -16,6 +17,7 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<Start />}></Route>
         <Route path="/home" element={<Home />}></Route>
+        <Route path="/home/detail/:id" element={<Detail />}></Route>
         <Route path="/Search" element={<Search />}></Route>
       </Routes>
     </>

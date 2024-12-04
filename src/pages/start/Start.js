@@ -24,7 +24,7 @@ const StartWrap = styled.div`
   .startLogo {
     margin-top: 50px;
     width: 270px;
-    height: 55px;
+    height: 48px;
   }
 `;
 const StartBtn = styled.button`
@@ -32,7 +32,7 @@ const StartBtn = styled.button`
   width: 100%;
   max-width: 280px;
   height: 50px;
-  background-color: #7a805c;
+  background-color: #a6b93a;
   /* margin-top: 100px; */
   border-radius: 20px;
   text-align: center;
