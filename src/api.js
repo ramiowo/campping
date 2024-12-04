@@ -26,3 +26,10 @@ export const detaillList = () => {
     `basedList?serviceKey=${API_KEY}&numOfRows=999&pageNo=1&&MobileOS=WIN&MobileApp=campping&_type=json&_type=json`;
   return fetch(detailUrl).then((res) => res.json());
 };
+
+export const searchList = (keyword, pageNum) => {
+  const searchUrl =
+    BASE_URL +
+    `searchList?serviceKey=${API_KEY}&numOfRows=999&pageNo=${pageNum}&&MobileOS=WIN&MobileApp=campping&_type=json&_type=json&keyword=${keyword}`;
+  return fetch(searchUrl).then((res) => res.json());
+};

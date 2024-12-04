@@ -40,23 +40,38 @@ const SerchWrap = styled.div`
 `;
 
 const CategoryWrap = styled.div`
-  margin-top: 20px;
+  margin-top: 30px;
+  h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+`;
+const CategoryItems = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  svg {
-    font-size: 26px;
-  }
 `;
 const CategoryItem = styled.div`
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 80px;
   border-radius: 10px;
-  background-color: #000;
+  background-color: #66c76a;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  p {
+    font-size: 13px;
+    font-weight: 500;
+    margin-top: 8px;
+  }
+  svg {
+    margin: 0;
+    display: inline;
+    font-size: 26px;
+  }
 `;
 
 const Home = () => {
@@ -95,32 +110,44 @@ const Home = () => {
               </SerchWrap>
             </SearchBtn>
             <CategoryWrap>
-              <h3>취향따라 캠핑가기</h3>
-              <CategoryItem>
-                <Link to={`/normal`}>
-                  <GiCampingTent style={{ color: "#fff", fontSize: "30px" }} />
-                </Link>
-              </CategoryItem>
-              <CategoryItem>
-                <Link to={`/glamping`}>
-                  <GiBarracksTent style={{ color: "#fff" }} />
-                </Link>
-              </CategoryItem>
-              <CategoryItem>
-                <Link to={`/caravan`}>
-                  <FaCaravan style={{ color: "#fff" }} />
-                </Link>
-              </CategoryItem>
-              <CategoryItem>
-                <Link to={`/car`}>
-                  <FaCar style={{ color: "#fff" }} />
-                </Link>
-              </CategoryItem>
-              <CategoryItem>
-                <Link to={`/pet`}>
-                  <FaDog style={{ color: "#fff" }} />
-                </Link>
-              </CategoryItem>
+              <h3>취향저격 맞춤 캠핑장</h3>
+              <CategoryItems>
+                <CategoryItem>
+                  <Link to={`/normal`}>
+                    <GiCampingTent
+                      style={{ color: "#fff", fontSize: "30px" }}
+                    />
+                    <p>일반 캠핑장</p>
+                  </Link>
+                </CategoryItem>
+                <CategoryItem>
+                  <Link to={`/glamping`}>
+                    <GiBarracksTent style={{ color: "#fff" }} />
+                    <p>글램핑</p>
+                  </Link>
+                </CategoryItem>
+                <CategoryItem>
+                  <Link to={`/caravan`}>
+                    <FaCaravan style={{ color: "#fff" }} />
+                    <p>카라반</p>
+                  </Link>
+                </CategoryItem>
+                <CategoryItem>
+                  <Link to={`/car`}>
+                    <FaCar style={{ color: "#fff" }} />
+                    <p>차박</p>
+                  </Link>
+                </CategoryItem>
+                <CategoryItem>
+                  <Link to={`/pet`}>
+                    <FaDog style={{ color: "#fff" }} />
+                    <p>
+                      애완동물
+                      <br /> 동반
+                    </p>
+                  </Link>
+                </CategoryItem>
+              </CategoryItems>
             </CategoryWrap>
             <CampPlace
               title={

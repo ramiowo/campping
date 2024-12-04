@@ -7,8 +7,8 @@ const Container = styled.div`
 `;
 
 const Title = styled.h2`
-  font-size: 20px;
-  font-weight: 800;
+  font-size: 18px;
+  font-weight: 600;
   margin-bottom: 20px;
   color: #000;
 `;
@@ -55,7 +55,7 @@ const CampPlace = ({ data, title }) => {
         {data && data.length > 0 ? (
           data.slice(0, 10).map((camp) => (
             <Con key={camp.contentId}>
-              <Link to={`detail/${camp.contentId}`}>
+              <Link to={`/detail/${camp.contentId}`}>
                 <img src={camp.firstImageUrl || noImg} alt={camp.facltNm} />
                 <p>{camp.facltNm}</p>
               </Link>
