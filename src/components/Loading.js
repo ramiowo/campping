@@ -12,7 +12,7 @@ const Container = styled.div`
 const Loading = () => {
   return (
     <Container>
-      <SkewLoader color="#5E653B" />
+      <SkewLoader color="#66C76A" />
     </Container>
   );
 };

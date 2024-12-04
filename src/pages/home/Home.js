@@ -1,14 +1,14 @@
 import styled from "styled-components";
 import Banner from "./components/Banner";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Wrapper from "../../components/Wrapper";
 import { FiSearch } from "react-icons/fi";
-
 import { useEffect, useState } from "react";
 import Loading from "../../components/Loading";
 import CampPlace from "./components/CampPlace";
 import { fetchBaseList } from "../../api";
-import { FaFire } from "react-icons/fa6";
+import { FaCar, FaCaravan, FaDog } from "react-icons/fa6";
+import { GiBarracksTent, GiCampingTent } from "react-icons/gi";
 
 const Container = styled.section`
   width: 100%;
@@ -22,7 +22,7 @@ const SearchBtn = styled.button`
   all: unset;
   width: 100%;
   height: 50px;
-  background-color: #57dc4d;
+  background-color: #66c76a;
   border-radius: 30px;
   margin-top: 20px;
   cursor: pointer;
@@ -37,6 +37,26 @@ const SerchWrap = styled.div`
   p {
     margin-right: 10px;
   }
+`;
+
+const CategoryWrap = styled.div`
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  svg {
+    font-size: 26px;
+  }
+`;
+const CategoryItem = styled.div`
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const Home = () => {
@@ -74,6 +94,34 @@ const Home = () => {
                 <FiSearch style={{ fontSize: "20px" }} />
               </SerchWrap>
             </SearchBtn>
+            <CategoryWrap>
+              <h3>취향따라 캠핑가기</h3>
+              <CategoryItem>
+                <Link to={`/normal`}>
+                  <GiCampingTent style={{ color: "#fff", fontSize: "30px" }} />
+                </Link>
+              </CategoryItem>
+              <CategoryItem>
+                <Link to={`/glamping`}>
+                  <GiBarracksTent style={{ color: "#fff" }} />
+                </Link>
+              </CategoryItem>
+              <CategoryItem>
+                <Link to={`/caravan`}>
+                  <FaCaravan style={{ color: "#fff" }} />
+                </Link>
+              </CategoryItem>
+              <CategoryItem>
+                <Link to={`/car`}>
+                  <FaCar style={{ color: "#fff" }} />
+                </Link>
+              </CategoryItem>
+              <CategoryItem>
+                <Link to={`/pet`}>
+                  <FaDog style={{ color: "#fff" }} />
+                </Link>
+              </CategoryItem>
+            </CategoryWrap>
             <CampPlace
               title={
                 <p>
