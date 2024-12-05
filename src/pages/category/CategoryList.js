@@ -5,10 +5,15 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Loading from "../../components/Loading";
 import Wrapper from "../../components/Wrapper";
+import useScrollTop from "../../lib/useScrollTop";
+import { Helmet } from "react-helmet-async";
 
-const Container = styled.section``;
+const Container = styled.section`
+  width: 100%;
+`;
 
 const Title = styled.h2`
+  margin-top: 20px;
   font-size: 20px;
   font-weight: 800;
   margin-bottom: 20px;
@@ -22,7 +27,6 @@ const Grid = styled.div`
 `;
 
 const Con = styled.div`
-  border-radius: 10px;
   overflow: hidden;
   text-align: center;
 
@@ -30,6 +34,7 @@ const Con = styled.div`
     width: 100%;
     height: 150px;
     object-fit: cover;
+    border-radius: 10px;
   }
 
   p {
@@ -37,12 +42,9 @@ const Con = styled.div`
     line-height: 40px;
     font-size: 14px;
     font-weight: 500;
-    background-color: #7ddd81;
-    color: #fff;
-    text-align: center;
+    color: #333;
+    text-align: left;
     padding: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
     white-space: nowrap;
   }
 `;
@@ -53,6 +55,7 @@ const CategoryList = ({ title, filterKey, filterValue, fetchApi }) => {
   const [scrollData, setScrollData] = useState([]);
   const [resultData, setResultData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  useScrollTop();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -105,27 +108,32 @@ const CategoryList = ({ title, filterKey, filterValue, fetchApi }) => {
   return isLoading ? (
     <Loading />
   ) : (
-    <Wrapper>
-      <Container>
-        <InfiniteScroll
-          dataLength={scrollData.length}
-          next={fetchMoreData}
-          hasMore={true}
-        >
-          <Title>{title}</Title>
-          <Grid>
-            {filteredData?.map((data) => (
-              <Con key={data.contentId}>
-                <Link to={`/detail/${data.contentId}`}>
-                  <img src={data.firstImageUrl || noImg} alt={data.facltNm} />
-                  <p>{data?.facltNm}</p>
-                </Link>
-              </Con>
-            ))}
-          </Grid>
-        </InfiniteScroll>
-      </Container>
-    </Wrapper>
+    <>
+      <Helmet>
+        <title>{title} | CAMP PING</title>
+      </Helmet>
+      <Wrapper>
+        <Container>
+          <InfiniteScroll
+            dataLength={scrollData.length}
+            next={fetchMoreData}
+            hasMore={true}
+          >
+            <Title>{title}</Title>
+            <Grid>
+              {filteredData?.map((data) => (
+                <Con key={data.contentId}>
+                  <Link to={`/detail/${data.contentId}`}>
+                    <img src={data.firstImageUrl || noImg} alt={data.facltNm} />
+                    <p>{data?.facltNm}</p>
+                  </Link>
+                </Con>
+              ))}
+            </Grid>
+          </InfiniteScroll>
+        </Container>
+      </Wrapper>
+    </>
   );
 };
 

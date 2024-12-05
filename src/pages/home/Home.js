@@ -9,11 +9,14 @@ import CampPlace from "./components/CampPlace";
 import { fetchBaseList } from "../../api";
 import { FaCar, FaCaravan, FaDog } from "react-icons/fa6";
 import { GiBarracksTent, GiCampingTent } from "react-icons/gi";
+import useScrollTop from "../../lib/useScrollTop";
+import { Helmet } from "react-helmet-async";
 
 const Container = styled.section`
   width: 100%;
   max-width: 430px;
-  min-height: 100vh;
+  /* height: 100vh; */
+  /* min-height: 100vh; */
   margin: 0 auto;
   background-color: #fdfff3;
 `;
@@ -24,7 +27,7 @@ const SearchBtn = styled.button`
   height: 50px;
   background-color: #66c76a;
   border-radius: 30px;
-  margin-top: 20px;
+  margin-top: 40px;
   cursor: pointer;
   color: #fff;
 `;
@@ -40,7 +43,7 @@ const SerchWrap = styled.div`
 `;
 
 const CategoryWrap = styled.div`
-  margin-top: 30px;
+  margin-top: 50px;
   h3 {
     font-size: 18px;
     font-weight: 600;
@@ -53,10 +56,10 @@ const CategoryItems = styled.div`
   justify-content: space-between;
 `;
 const CategoryItem = styled.div`
-  width: 70px;
-  height: 80px;
-  border-radius: 10px;
-  background-color: #66c76a;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 1px solid #f1f1f1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -70,7 +73,18 @@ const CategoryItem = styled.div`
   svg {
     margin: 0;
     display: inline;
+    color: #7ddd81;
     font-size: 26px;
+  }
+`;
+
+const Wrap = styled.div`
+  p {
+    margin-top: 6px;
+    font-size: 12px;
+    text-align: center;
+    font-weight: 500;
+    color: #555;
   }
 `;
 
@@ -78,6 +92,7 @@ const Home = () => {
   const Searchnav = useNavigate();
   const [campData, setCampData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  useScrollTop();
 
   const SearchClick = () => {
     Searchnav("/Search");
@@ -100,66 +115,76 @@ const Home = () => {
       {isLoading ? (
         <Loading />
       ) : (
-        <Wrapper>
-          <Container>
-            <Banner />
-            <SearchBtn onClick={SearchClick}>
-              <SerchWrap>
-                <p>빠른 캠핑장 찾기</p>
-                <FiSearch style={{ fontSize: "20px" }} />
-              </SerchWrap>
-            </SearchBtn>
-            <CategoryWrap>
-              <h3>취향저격 맞춤 캠핑장</h3>
-              <CategoryItems>
-                <CategoryItem>
-                  <Link to={`/normal`}>
-                    <GiCampingTent
-                      style={{ color: "#fff", fontSize: "30px" }}
-                    />
-                    <p>일반 캠핑장</p>
-                  </Link>
-                </CategoryItem>
-                <CategoryItem>
-                  <Link to={`/glamping`}>
-                    <GiBarracksTent style={{ color: "#fff" }} />
+        <>
+          <Helmet>
+            <title>Home | CAMP PING</title>
+          </Helmet>
+          <Wrapper>
+            <Container>
+              <Banner />
+              <SearchBtn onClick={SearchClick}>
+                <SerchWrap>
+                  <p>빠른 캠핑장 찾기</p>
+                  <FiSearch style={{ fontSize: "20px" }} />
+                </SerchWrap>
+              </SearchBtn>
+              <CategoryWrap>
+                <h3>취향저격 맞춤 캠핑장</h3>
+                <CategoryItems>
+                  <Wrap>
+                    <CategoryItem>
+                      <Link to={`/normal`}>
+                        <GiCampingTent style={{ fontSize: "30px" }} />
+                      </Link>
+                    </CategoryItem>
+                    <p>일반야영장</p>
+                  </Wrap>
+                  <Wrap>
+                    <CategoryItem>
+                      <Link to={`/glamping`}>
+                        <GiBarracksTent />
+                      </Link>
+                    </CategoryItem>
                     <p>글램핑</p>
-                  </Link>
-                </CategoryItem>
-                <CategoryItem>
-                  <Link to={`/caravan`}>
-                    <FaCaravan style={{ color: "#fff" }} />
+                  </Wrap>
+                  <Wrap>
+                    <CategoryItem>
+                      <Link to={`/caravan`}>
+                        <FaCaravan />
+                      </Link>
+                    </CategoryItem>
                     <p>카라반</p>
-                  </Link>
-                </CategoryItem>
-                <CategoryItem>
-                  <Link to={`/car`}>
-                    <FaCar style={{ color: "#fff" }} />
+                  </Wrap>
+                  <Wrap>
+                    <CategoryItem>
+                      <Link to={`/car`}>
+                        <FaCar />
+                      </Link>
+                    </CategoryItem>
                     <p>차박</p>
-                  </Link>
-                </CategoryItem>
-                <CategoryItem>
-                  <Link to={`/pet`}>
-                    <FaDog style={{ color: "#fff" }} />
-                    <p>
-                      애완동물
-                      <br /> 동반
-                    </p>
-                  </Link>
-                </CategoryItem>
-              </CategoryItems>
-            </CategoryWrap>
-            <CampPlace
-              title={
-                <p>
-                  지금 <span style={{ color: "#D9362B" }}>HOT</span> 한 추천
-                  캠핑장
-                </p>
-              }
-              data={campData}
-            />
-          </Container>
-        </Wrapper>
+                  </Wrap>
+                  <Wrap>
+                    <CategoryItem>
+                      <Link to={`/pet`}>
+                        <FaDog />
+                      </Link>
+                    </CategoryItem>
+                    <p>애견동반</p>
+                  </Wrap>
+                </CategoryItems>
+              </CategoryWrap>
+              <CampPlace
+                title={
+                  <p>
+                    지금 <span style={{ color: "#D9362B" }}>HOT</span> 한 추천
+                    캠핑장
+                  </p>
+                }
+                data={campData}
+              />
+            </Container>
+          </Wrapper>
+        </>
       )}
     </div>
   );

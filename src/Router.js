@@ -9,6 +9,7 @@ import Normal from "./pages/category/components/Normal";
 import Caravan from "./pages/category/components/Caravan";
 import Glamping from "./pages/category/components/Glamping";
 import Pet from "./pages/category/components/Pet";
+import Footer from "./components/Footer";
 
 const Router = () => {
   const location = useLocation(); // 현재 경로를 가져옴
@@ -30,6 +31,7 @@ const Router = () => {
         <Route path="/pet" element={<Pet />}></Route>
         <Route path="/Search" element={<Search />}></Route>
       </Routes>
+      <Footer />
     </>
   );
 };

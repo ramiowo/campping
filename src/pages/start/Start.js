@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 const Container = styled.section`
   width: 100%;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,11 +12,12 @@ const Container = styled.section`
 `;
 
 const StartWrap = styled.div`
+  margin-top: -30px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-top: 150px;
+
   img {
     /* margin: 0 auto; */
     width: 285px;
@@ -32,15 +34,16 @@ const StartBtn = styled.button`
   width: 100%;
   max-width: 280px;
   height: 50px;
-  background-color: #a6b93a;
+  background-color: #66c76a;
   /* margin-top: 100px; */
-  border-radius: 20px;
+  border-radius: 30px;
   text-align: center;
   font-weight: 600;
   cursor: pointer;
   position: absolute;
   bottom: 10%;
   letter-spacing: 1px;
+  color: #fff;
 `;
 
 const Start = () => {

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Container = styled.div`
-  margin-top: 30px;
+  margin-top: 60px;
   background-color: #fdfff3;
 `;
 
@@ -20,7 +20,6 @@ const Grid = styled.div`
 `;
 
 const Con = styled.div`
-  border-radius: 10px;
   overflow: hidden;
   text-align: center;
 
@@ -28,6 +27,7 @@ const Con = styled.div`
     width: 100%;
     height: 150px;
     object-fit: cover;
+    border-radius: 10px;
   }
 
   p {
@@ -35,12 +35,9 @@ const Con = styled.div`
     line-height: 40px;
     font-size: 14px;
     font-weight: 500;
-    background-color: #7ddd81;
-    color: #fff;
-    text-align: center;
+    color: #333;
+    text-align: left;
     padding: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
     white-space: nowrap;
   }
 `;

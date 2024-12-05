@@ -1,13 +1,18 @@
-import React, { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { searchList } from "../../api";
 import styled from "styled-components";
-import Wrapper from "../../components/Wrapper";
 import Loading from "../../components/Loading";
 import { Link, useSearchParams } from "react-router-dom";
 import { LuSearch } from "react-icons/lu";
+import useScrollTop from "../../lib/useScrollTop";
+import { Helmet } from "react-helmet-async";
 
 const Container = styled.section`
   width: 100%;
+  max-width: 430px;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 0 16px;
   background-color: #fdfff3;
 `;
 
@@ -22,19 +27,19 @@ const SearchWrap = styled.div`
 const Input = styled.input`
   all: unset;
   box-sizing: border-box;
-  width: 88%;
-  height: 40px;
+  width: 83%;
+  height: 50px;
   background-color: #fff;
   border: 1px solid #66c76a;
   padding: 0 12px;
-  border-radius: 20px;
+  border-radius: 30px;
   font-size: 14px;
 `;
 
 const Button = styled.button`
   all: unset;
-  width: 10%;
-  height: 40px;
+  width: 14%;
+  height: 50px;
   background-color: #66c76a;
   margin-left: 10px;
   font-size: 20px;
@@ -50,7 +55,6 @@ const Grid = styled.div`
 `;
 
 const Con = styled.div`
-  border-radius: 10px;
   overflow: hidden;
   text-align: center;
 
@@ -58,6 +62,7 @@ const Con = styled.div`
     width: 100%;
     height: 150px;
     object-fit: cover;
+    border-radius: 10px;
   }
 
   p {
@@ -65,12 +70,9 @@ const Con = styled.div`
     line-height: 40px;
     font-size: 14px;
     font-weight: 500;
-    background-color: #7ddd81;
-    color: #fff;
-    text-align: center;
+    color: #333;
+    text-align: left;
     padding: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
     white-space: nowrap;
   }
 `;
@@ -81,16 +83,17 @@ const Search = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [keyword, setKeyword] = useState(searchParams.get("keyword") || ""); // 검색어 상태
   const [results, setResults] = useState([]); // 검색 결과 상태
-  const [pageNum, setPageNum] = useState(1); // 페이지 번호 상태
+  // const [pageNum, setPageNum] = useState(1); // 페이지 번호 상태
   const [loading, setLoading] = useState(false); // 로딩 상태
   const [isSearched, setIsSearched] = useState(false);
+  useScrollTop();
 
-  const handleSearch = async () => {
+  const handleSearch = useCallback(async () => {
     setLoading(true);
     setIsSearched(true);
     try {
       const data = await searchList(keyword, 1);
-      console.log(data);
+      // console.log(data);
       setResults(data?.response?.body?.items?.item || []);
       setSearchParams({ keyword });
     } catch (error) {
@@ -98,16 +101,20 @@ const Search = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [keyword]);
 
   useEffect(() => {
     if (keyword) {
       handleSearch();
     }
-  }, []);
+  }, [handleSearch]);
 
   return (
-    <Wrapper>
+    <>
+      <Helmet>
+        <title>SEARCH | CAMP PING</title>
+      </Helmet>
+
       <Container>
         <SearchWrap>
           <Input
@@ -139,7 +146,7 @@ const Search = () => {
           </>
         )}
       </Container>
-    </Wrapper>
+    </>
   );
 };
 
