@@ -44,7 +44,7 @@ const Header = () => {
       )}
       <Logo>
         <Link to={"/home"}>
-          <img src="/imgs/logo.png" alt="logo"></img>
+          <img src={`${process.env.PUBLIC_URL}/imgs/logo.png`} alt="logo"></img>
         </Link>
       </Logo>
     </Container>

@@ -10,6 +10,7 @@ import { Helmet } from "react-helmet-async";
 
 const Container = styled.section`
   width: 100%;
+  min-height: 100vh;
 `;
 
 const Title = styled.h2`

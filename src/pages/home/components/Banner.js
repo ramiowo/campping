@@ -49,7 +49,10 @@ const Banner = () => {
               to={`https://gocamping.or.kr/zboard/read.do?searchWrd=&pageIndex=1&lmCode=campSafe&searchCnd=&searchCate1=&pd_pkid=6522`}
               target="blank"
             >
-              <img src={item.img} alt={`Banner ${item.id}`} />
+              <img
+                src={`${process.env.PUBLIC_URL + item.img}`}
+                alt={`Banner ${item.id}`}
+              />
             </Link>
           </Con>
         </SwiperSlide>

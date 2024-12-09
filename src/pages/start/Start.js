@@ -56,10 +56,13 @@ const Start = () => {
     <Wrapper>
       <Container>
         <StartWrap>
-          <img src="/imgs/startimg.png" alt="startImg" />
+          <img
+            src={`${process.env.PUBLIC_URL}/imgs/startImg.png`}
+            alt="startImg"
+          />
           <img
             className="startLogo"
-            src="/imgs/startLogo.png"
+            src={`${process.env.PUBLIC_URL}/imgs/startLogo.png`}
             alt="startLogo"
           />
         </StartWrap>

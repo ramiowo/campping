@@ -37,18 +37,18 @@ const TextWrap = styled.div`
   .title {
     font-size: 20px;
     font-weight: 600;
-    margin-bottom: 20px;
+    margin-bottom: 26px;
     color: #222;
   }
   .location {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 16px;
   }
   .tel {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
   }
   svg {
     margin-right: 5px;
