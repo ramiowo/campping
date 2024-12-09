@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/campping/static/css/main.3c70d7db.css",
-    "main.js": "/campping/static/js/main.0f278f44.js",
+    "main.js": "/campping/static/js/main.b92aa044.js",
     "index.html": "/campping/index.html",
     "main.3c70d7db.css.map": "/campping/static/css/main.3c70d7db.css.map",
-    "main.0f278f44.js.map": "/campping/static/js/main.0f278f44.js.map"
+    "main.b92aa044.js.map": "/campping/static/js/main.b92aa044.js.map"
   },
   "entrypoints": [
     "static/css/main.3c70d7db.css",
-    "static/js/main.0f278f44.js"
+    "static/js/main.b92aa044.js"
   ]
 }
