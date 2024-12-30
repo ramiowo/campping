@@ -10,7 +10,8 @@ import { Helmet } from "react-helmet-async";
 const Container = styled.section`
   width: 100%;
   max-width: 430px;
-  height: 100vh;
+  height: 100%;
+  min-height: 100vh;
   margin: 0 auto;
   padding: 0 16px;
   background-color: #fdfff3;

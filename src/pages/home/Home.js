@@ -132,43 +132,43 @@ const Home = () => {
                 <h3>취향저격 맞춤 캠핑장</h3>
                 <CategoryItems>
                   <Wrap>
-                    <CategoryItem>
-                      <Link to={`/normal`}>
+                    <Link to={`/normal`}>
+                      <CategoryItem>
                         <GiCampingTent style={{ fontSize: "30px" }} />
-                      </Link>
-                    </CategoryItem>
+                      </CategoryItem>
+                    </Link>
                     <p>일반야영장</p>
                   </Wrap>
                   <Wrap>
-                    <CategoryItem>
-                      <Link to={`/glamping`}>
+                    <Link to={`/glamping`}>
+                      <CategoryItem>
                         <GiBarracksTent />
-                      </Link>
-                    </CategoryItem>
+                      </CategoryItem>
+                    </Link>
                     <p>글램핑</p>
                   </Wrap>
                   <Wrap>
-                    <CategoryItem>
-                      <Link to={`/caravan`}>
+                    <Link to={`/caravan`}>
+                      <CategoryItem>
                         <FaCaravan />
-                      </Link>
-                    </CategoryItem>
+                      </CategoryItem>
+                    </Link>
                     <p>카라반</p>
                   </Wrap>
                   <Wrap>
-                    <CategoryItem>
-                      <Link to={`/car`}>
+                    <Link to={`/car`}>
+                      <CategoryItem>
                         <FaCar />
-                      </Link>
-                    </CategoryItem>
+                      </CategoryItem>
+                    </Link>
                     <p>차박</p>
                   </Wrap>
                   <Wrap>
-                    <CategoryItem>
-                      <Link to={`/pet`}>
+                    <Link to={`/pet`}>
+                      <CategoryItem>
                         <FaDog />
-                      </Link>
-                    </CategoryItem>
+                      </CategoryItem>
+                    </Link>
                     <p>애견동반</p>
                   </Wrap>
                 </CategoryItems>

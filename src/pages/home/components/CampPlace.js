@@ -4,6 +4,7 @@ import styled from "styled-components";
 const Container = styled.div`
   margin-top: 60px;
   background-color: #fdfff3;
+  padding-bottom: 40px;
 `;
 
 const Title = styled.h2`
